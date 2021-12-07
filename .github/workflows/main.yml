@@ -1,17 +1,33 @@
-name: CI
-on: [push]
+name: Football Formations CI
+
+on:
+  push:
+    branches:
+      - master
+
 jobs:
-  build:
-    name: Test
+  build_and_test:
+    name: Build & Test
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.3.0
+      - name: Checkout 🏁
+        uses: actions/checkout@v2
+
+      - name: Setup Node ⚙️
+        uses: actions/setup-node@v2
         with:
-          cmd: install
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: build
-      - uses: borales/actions-yarn@v2.3.0
-        with:
-          cmd: test
+          node-version: '16.x'
+
+      - name: Install 📦
+        run: yarn install --frozen-lockfile
+
+      - name: Build 🛠
+        run: yarn lint
+
+      - name: Lint 🧹
+        run: yarn lint
+
+      - name: Test 🧪
+        run: yarn test
