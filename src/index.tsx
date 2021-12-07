@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import FootballFormations from './FootballFormations';
+import FootballFormations from './components/FootballFormations';
 
 ReactDOM.render(
 	<React.StrictMode>
