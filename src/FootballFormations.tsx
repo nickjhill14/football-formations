@@ -1,3 +1,3 @@
 export default function FootballFormations() {
-    return <h1>Football Formations</h1>;
+  return <h1>Football Formations</h1>;
 }
