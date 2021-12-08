@@ -1,12 +1,15 @@
-import { getAllByAltText, render, RenderResult } from '@testing-library/react';
+import { render, RenderResult } from '@testing-library/react';
 import { axe } from 'jest-axe';
 import {
+	DEFENDERS_FORMATION_ARTICLE_LABEL,
 	DEFENDERS_HEADING,
 	DEFENDERS_ICON_LABEL,
 	DEFENDERS_SECTION_LABEL,
+	FORWARDS_FORMATION_ARTICLE_LABEL,
 	FORWARDS_HEADING,
 	FORWARDS_ICON_LABEL,
 	FORWARDS_SECTION_LABEL,
+	MIDFIELDERS_FORMATION_ARTICLE_LABEL,
 	MIDFIELDERS_HEADING,
 	MIDFIELDERS_ICON_LABEL,
 	MIDFIELDERS_SECTION_LABEL,
@@ -29,10 +32,13 @@ describe('<FormationDisplay/>', () => {
 
 			expect(getByRole('region', { name: DEFENDERS_SECTION_LABEL })).toBeInTheDocument();
 			expect(getByRole('heading', { name: DEFENDERS_HEADING })).toBeInTheDocument();
+			expect(getByRole('article', { name: DEFENDERS_FORMATION_ARTICLE_LABEL })).toBeInTheDocument();
 			expect(getByRole('region', { name: MIDFIELDERS_SECTION_LABEL })).toBeInTheDocument();
 			expect(getByRole('heading', { name: MIDFIELDERS_HEADING })).toBeInTheDocument();
+			expect(getByRole('article', { name: MIDFIELDERS_FORMATION_ARTICLE_LABEL })).toBeInTheDocument();
 			expect(getByRole('region', { name: FORWARDS_SECTION_LABEL })).toBeInTheDocument();
 			expect(getByRole('heading', { name: FORWARDS_HEADING })).toBeInTheDocument();
+			expect(getByRole('article', { name: FORWARDS_FORMATION_ARTICLE_LABEL })).toBeInTheDocument();
 		});
 
 		it('should render the formation', () => {

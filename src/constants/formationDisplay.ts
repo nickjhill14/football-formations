@@ -1,6 +1,9 @@
 export const DEFENDERS_SECTION_LABEL = 'Defenders Section';
+export const DEFENDERS_FORMATION_ARTICLE_LABEL = 'Defenders Formation Article';
 export const MIDFIELDERS_SECTION_LABEL = 'Midfielders Section';
+export const MIDFIELDERS_FORMATION_ARTICLE_LABEL = 'Midfielders Formation Article';
 export const FORWARDS_SECTION_LABEL = 'Forwards Section';
+export const FORWARDS_FORMATION_ARTICLE_LABEL = 'Forwards Formation Article';
 export const DEFENDERS_HEADING = 'Defenders';
 export const MIDFIELDERS_HEADING = 'Midfielders';
 export const FORWARDS_HEADING = 'Forwards';
