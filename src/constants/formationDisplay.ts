@@ -4,3 +4,6 @@ export const FORWARDS_SECTION_LABEL = 'Forwards Section';
 export const DEFENDERS_HEADING = 'Defenders';
 export const MIDFIELDERS_HEADING = 'Midfielders';
 export const FORWARDS_HEADING = 'Forwards';
+export const DEFENDERS_ICON_LABEL = 'Defenders Icon';
+export const MIDFIELDERS_ICON_LABEL = 'Midfielders Icon';
+export const FORWARDS_ICON_LABEL = 'Forwards Icon';

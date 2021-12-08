@@ -1,5 +1,5 @@
 import { ChangeEvent, ReactElement, useState } from 'react';
-import { Formation } from '../../types';
+import { Formation } from '../../utils/types';
 import {
 	FOOTBALL_FORMATIONS_HEADING,
 	FOOTBALL_FORMATIONS_SUBHEADING,
