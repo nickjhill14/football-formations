@@ -11,7 +11,12 @@ import {
 	HEADER_LABEL,
 	MAIN_LABEL,
 	NO_FORMATION,
-} from '../constants/footballFormations';
+} from '../../constants/footballFormations';
+import {
+	DEFENDERS_SECTION_LABEL,
+	MIDFIELDERS_SECTION_LABEL,
+	FORWARDS_SECTION_LABEL,
+} from '../../constants/formationDisplay';
 import FootballFormations from './FootballFormations';
 
 describe('<FootballFormations/>', () => {
@@ -42,6 +47,9 @@ describe('<FootballFormations/>', () => {
 
 			expect(getByRole('region', { name: FORMATION_DISPLAY_SECTION_LABEL })).toBeInTheDocument();
 			expect(getByRole('heading', { name: selectedFormation })).toBeInTheDocument();
+			expect(getByRole('region', { name: DEFENDERS_SECTION_LABEL })).toBeInTheDocument();
+			expect(getByRole('region', { name: MIDFIELDERS_SECTION_LABEL })).toBeInTheDocument();
+			expect(getByRole('region', { name: FORWARDS_SECTION_LABEL })).toBeInTheDocument();
 		});
 
 		it('should remove selected formation on change back to none', () => {

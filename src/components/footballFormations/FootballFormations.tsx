@@ -1,4 +1,5 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, ReactElement, useState } from 'react';
+import { Formation } from '../../types';
 import {
 	FOOTBALL_FORMATIONS_HEADING,
 	FOOTBALL_FORMATIONS_SUBHEADING,
@@ -9,13 +10,20 @@ import {
 	HEADER_LABEL,
 	MAIN_LABEL,
 	NO_FORMATION,
-} from '../constants/footballFormations';
+} from '../../constants/footballFormations';
+import FormationDisplay from '../formationDisplay/FormationDisplay';
 
-export default function FootballFormations() {
+export default function FootballFormations(): ReactElement {
 	const [selectedFormation, setSelectedFormation] = useState('');
 
+	const transformToFormation = (formation: string): Formation => {
+		const parsedFormation = formation.split('-').map((position) => parseInt(position));
+		return { defenders: parsedFormation[0], midfielders: parsedFormation[1], forwards: parsedFormation[2] };
+	};
+
 	const handleFormationSelect = (event: ChangeEvent<HTMLSelectElement>): void => {
-		setSelectedFormation(event.currentTarget.value);
+		const formation = event.currentTarget.value;
+		formation === NO_FORMATION ? setSelectedFormation('') : setSelectedFormation(formation);
 	};
 
 	return (
@@ -35,9 +43,10 @@ export default function FootballFormations() {
 					))}
 				</select>
 			</section>
-			{selectedFormation && selectedFormation !== NO_FORMATION && (
+			{selectedFormation && (
 				<section aria-label={FORMATION_DISPLAY_SECTION_LABEL}>
 					<h3>{selectedFormation}</h3>
+					<FormationDisplay formation={transformToFormation(selectedFormation)} />
 				</section>
 			)}
 		</main>
