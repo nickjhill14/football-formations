@@ -1,0 +1,17 @@
+.mainApp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mainHeader, .selectedFormationHeading {
+  text-align: center;
+}
+
+.formationSelectLabel {
+  margin-right: 5px;
+}
+
+.formationDisplaySection {
+  width: 50%;
+}

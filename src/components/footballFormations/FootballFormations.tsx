@@ -12,6 +12,7 @@ import {
 	NO_FORMATION,
 } from '../../constants/footballFormations';
 import FormationDisplay from '../formationDisplay/FormationDisplay';
+import styles from './football-formations.module.scss';
 
 export default function FootballFormations(): ReactElement {
 	const [selectedFormation, setSelectedFormation] = useState('');
@@ -27,13 +28,15 @@ export default function FootballFormations(): ReactElement {
 	};
 
 	return (
-		<main aria-label={MAIN_LABEL}>
-			<header aria-label={HEADER_LABEL}>
+		<main aria-label={MAIN_LABEL} className={styles.mainApp}>
+			<header aria-label={HEADER_LABEL} className={styles.mainHeader}>
 				<h1>{FOOTBALL_FORMATIONS_HEADING}</h1>
 				<h2>{FOOTBALL_FORMATIONS_SUBHEADING}</h2>
 			</header>
 			<section aria-label={FORMATION_SELECTION_SECTION_LABEL}>
-				<label htmlFor={FORMATIONS_SELECT_LABEL}>{FORMATIONS_SELECT_LABEL}</label>
+				<label htmlFor={FORMATIONS_SELECT_LABEL} className={styles.formationSelectLabel}>
+					{FORMATIONS_SELECT_LABEL}
+				</label>
 				<select id={FORMATIONS_SELECT_LABEL} onChange={handleFormationSelect}>
 					<option defaultChecked>{NO_FORMATION}</option>
 					{FORMATIONS.map((formation) => (
@@ -44,8 +47,8 @@ export default function FootballFormations(): ReactElement {
 				</select>
 			</section>
 			{selectedFormation && (
-				<section aria-label={FORMATION_DISPLAY_SECTION_LABEL}>
-					<h3>{selectedFormation}</h3>
+				<section aria-label={FORMATION_DISPLAY_SECTION_LABEL} className={styles.formationDisplaySection}>
+					<h3 className={styles.selectedFormationHeading}>{selectedFormation}</h3>
 					<FormationDisplay formation={transformToFormation(selectedFormation)} />
 				</section>
 			)}
